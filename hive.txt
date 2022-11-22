@@ -1,0 +1,32 @@
+Hive DDL Commands
+create database
+
+drop database
+
+create table
+
+drop table
+
+alter table
+
+create index
+
+create views
+
+Hive DML Commands
+Select
+
+Where
+
+Group By
+
+Order By
+
+Load Data
+
+Join:
+
+Inner Join
+Left Outer Join
+Right Outer Join
+Full Outer Join
