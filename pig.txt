@@ -1,0 +1,69 @@
+1. Fs: This will list all the file in the HDFS
+
+grunt> fs –ls
+
+2. Clear: This will clear the interactive Grunt shell.
+
+grunt> clear
+
+3. History:
+
+This command shows the commands executed so far.
+grunt> history
+
+4. Reading Data: Assuming the data resides in HDFS, and we need to read data to Pig.
+
+grunt> college_students = LOAD ‘hdfs://localhost:9000/pig_data/college_data.txt’
+
+USING PigStorage(‘,’)
+
+as ( id:int, firstname:chararray, lastname:chararray, phone:chararray,
+
+city:chararray );
+
+PigStorage() is the function that loads and stores data as structured text files.
+
+5. Storing Data: Store operator is used to storing the processed/loaded data.
+
+grunt> STORE college_students INTO ‘ hdfs://localhost:9000/pig_Output/ ‘ USING PigStorage (‘,’);
+
+Here, “/pig_Output/” is the directory where relation needs to be stored.
+
+6. Dump Operator: This command is used to display the results on screen. It usually helps in debugging.
+
+grunt> Dump college_students;
+
+7. Describe Operator: It helps the programmer to view the schema of the relation.
+
+grunt> describe college_students;
+
+8. Explain: This command helps to review the logical, physical and map-reduce execution plans.
+
+grunt> explain college_students;
+
+9. Illustrate operator: This gives step-by-step execution of statements in Pig Commands.
+
+grunt> illustrate college_students;
+
+
+1. Group: This command works towards grouping data with the same key.
+
+grunt> group_data = GROUP college_students by first name;
+
+2. COGROUP: It works similarly to the group operator. The main difference between Group & Cogroup operator is that group operator usually used with one relation, while cogroup is used with more than one relation.
+
+3. Join: This is used to combine two or more relations.
+
+Example: In order to perform self-join, let’s say relation “customer” is loaded from HDFS tp pig commands in two relations customers1 & customers2.
+
+grunt> customers3 = JOIN customers1 BY id, customers2 BY id;
+
+Join could be self-join, Inner-join, Outer-join.
+
+4. Cross: This pig command calculates the cross product of two or more relations.
+
+grunt> cross_data = CROSS customers, orders;
+
+5. Union: It merges two relations. The condition for merging is that both the relation’s columns and domains must be identical.
+
+grunt> student = UNION student1, student2;
