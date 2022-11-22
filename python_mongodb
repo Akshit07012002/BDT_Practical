@@ -1,0 +1,13 @@
+from pymongo import MongoClient
+
+client = MongoClient('localhost', 27017)
+
+db = client['student'] #database
+collection = db['student']
+
+collection.insert_one({"name": "ABC", "age": 20, "address": "XYZ"})
+collection.insert_many([{"name": "ABC", "age": 20, "address": "XYZ"}, {"name": "ABC", "age": 20, "address": "XYZ"}])
+
+collection.delete_one({"name": "ABC"})
+
+insert_one insert_many, find, update_one, update_many, delete_one, delete_many
