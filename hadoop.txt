@@ -1,0 +1,12 @@
+hdfs dfs:
+
+-ls
+-cat
+-touchz
+-get
+-put
+-moveToLocal
+-moveFromLocal
+-cp
+-mv
+-mkdir
